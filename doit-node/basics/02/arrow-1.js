@@ -6,3 +6,10 @@
 // };
 
 // 화살표 함수
+
+let hi = () => { return 'Hi bro!'}
+
+let hi2 = () => 'Hi bro2!!';
+
+console.log(hi());
+console.log(hi2());
