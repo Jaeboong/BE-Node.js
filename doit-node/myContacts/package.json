@@ -1,0 +1,21 @@
+{
+  "name": "contacts-manager",
+  "version": "1.0.0",
+  "description": "simple contacts manager",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "simple contacts manager"
+  },
+  "keywords": [
+    "app.js"
+  ],
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
