@@ -6,10 +6,17 @@ const Contact = require("../models/contactModel");
 
 const getAllContacts = asyncHandler(async(req, res) => {
     const contacts = await Contact.find();
-    res.send(contacts);
+    res.render("index", {contacts: contacts});
 });
 
-const postAllContacts = asyncHandler(async(req, res) =>{
+// view add contact form
+// GET /contacts/add
+
+const addContactForm = (req, res) => {
+    res.render("add");
+}
+
+const createContacts = asyncHandler(async(req, res) =>{
     console.log(req.body);
     const {name, email, phone} = req.body;
     if(!name|| !email || !phone){
@@ -27,7 +34,7 @@ const postAllContacts = asyncHandler(async(req, res) =>{
 
 const getContact_ID = asyncHandler(async (req, res) =>{
     const contact = await Contact.findById(req.params.id);
-    res.send(contact);
+    res.render("update", {contact: contact});
 })
 const updateContact_ID = asyncHandler(async (req, res) =>{
     const id = req.params.id;
@@ -43,22 +50,17 @@ const updateContact_ID = asyncHandler(async (req, res) =>{
 
     contact.save();
 
-    res.json(contact);
+    res.redirect("/contacts");
 })
 const deleteContact_ID = asyncHandler(async (req, res) =>{
-    const id = req.params.id;
-    const contact = await Contact.findById(id);
-    if(!contact){
-        throw new Error("Contact not Found!");
-    }
-
-    await Contact.deleteOne();
-    res.send("Deleted");
+    await Contact.findByIdAndDelete(req.params.id);
+    res.redirect("/contacts")
 })
 
-module.exports = {postAllContacts,
+module.exports = {createContacts,
     getAllContacts,
     getContact_ID,
     updateContact_ID,
-    deleteContact_ID
+    deleteContact_ID,
+    addContactForm
 };

@@ -1,10 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const { getAllContacts, postAllContacts, getContact_ID, updateContact_ID, deleteContact_ID } = require("../controllers/contactControllers");
+const { getAllContacts, 
+    createContacts, 
+    getContact_ID, 
+    updateContact_ID, 
+    deleteContact_ID,
+    addContactForm
+} = require("../controllers/contactControllers");
 
 router.route("/")
-.get(getAllContacts)
-.post(postAllContacts);
+.get(getAllContacts);
+
+router.route("/add").get(addContactForm).post(createContacts);
 
 router.route("/:id")
 .get(getContact_ID)
