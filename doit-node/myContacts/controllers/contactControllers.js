@@ -54,7 +54,7 @@ const updateContact_ID = asyncHandler(async (req, res) =>{
 })
 const deleteContact_ID = asyncHandler(async (req, res) =>{
     await Contact.findByIdAndDelete(req.params.id);
-    res.redirect("/contacts")
+    res.redirect("/contacts");
 })
 
 module.exports = {createContacts,
