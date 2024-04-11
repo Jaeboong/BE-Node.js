@@ -16,11 +16,7 @@
     "app.js"
   ],
   "dependencies": {
-<<<<<<< HEAD
-    "bcrypt": "^5.1.1",
-=======
     "cookie-parser": "^1.4.6",
->>>>>>> 7d8d278f336a6107f321581d849495cf718bb136
     "dotenv": "^16.4.5",
     "ejs": "^3.1.9",
     "express": "^4.19.2",
